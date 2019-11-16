@@ -24,6 +24,7 @@ const sockets = [];
  * */
 const channelInfo = new Map();
 const {
+  WEB_SERVER_HOST = process.env.WEB_SERVER_HOST,
   SERVER_PORT = process.env.SERVER_PORT,
 } = dotenv.config().parsed;
 
@@ -122,7 +123,7 @@ io.on('connection', (socket) => {
       info.roomUsers.push({
         id: socket.id,
         name,
-        avatar: `http://localhost:8808/images/avatars/avatar${info.userCount + 1}.png`,
+        avatar: `${WEB_SERVER_HOST}/images/avatars/avatar${info.userCount + 1}.png`,
         joinedAt,
       });
 
@@ -136,7 +137,7 @@ io.on('connection', (socket) => {
         joinUser: {
           name,
           id: socket.id,
-          avatar: `http://localhost:8808/images/avatars/avatar${info.userCount + 1}.png`,
+          avatar: `${WEB_SERVER_HOST}/images/avatars/avatar${info.userCount + 1}.png`,
           joinedAt,
         },
       });
@@ -154,7 +155,7 @@ io.on('connection', (socket) => {
         roomUsers: [{
           id: socket.id,
           name,
-          avatar: 'http://localhost:8808/images/avatars/avatar1.png',
+          avatar: `${WEB_SERVER_HOST}/images/avatars/avatar1.png`,
           joinedAt,
         }],
       };
@@ -169,7 +170,7 @@ io.on('connection', (socket) => {
           name,
           id: socket.id,
           joinedAt,
-          avatar: 'http://localhost:8808/images/avatars/avatar1.png',
+          avatar: `${WEB_SERVER_HOST}/images/avatars/avatar1.png`,
         },
       });
       socket.channelName = channelName;
