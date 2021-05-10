@@ -18,7 +18,7 @@
     "express": "4.16.2",
     "http": "0.0.0",
     "jsonwebtoken": "^8.3.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "moment": "^2.22.2",
     "socket.io": "2.0.4",
     "socketio-jwt": "^4.5.0",
